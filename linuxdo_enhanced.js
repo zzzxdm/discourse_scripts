@@ -7,6 +7,7 @@
 // @license      MIT
 // @icon         https://linux.do/uploads/default/optimized/3X/9/d/9dd49731091ce8656e94433a26a3ef36062b3994_2_32x32.png
 // @match        *://linux.do/*
+// @match        *://www.nodeloc.com/*
 // @require      https://unpkg.com/vue@3.5.13/dist/vue.global.prod.js
 // @require      https://unpkg.com/jquery@3.7.1/dist/jquery.min.js
 // @require      https://unpkg.com/pangu@4.0.7/dist/browser/pangu.js
@@ -2039,7 +2040,7 @@ ${$(".d-editor-input").val()}
           formData.append("notification_level", 0);
           const topicId = $(this).attr("data-id");
           return new Promise((resolve, reject) => {
-            fetch(`https://linux.do/t/${topicId}/notifications`, {
+            fetch(`${window.location.origin}/t/${topicId}/notifications`, {
               method: "POST",
               body: formData,
               headers: {
@@ -4232,7 +4233,7 @@ ${topic_contentdata}`;
               key: item.id
             }, [
               vue.createElementVNode("a", {
-                href: "https://linux.do/t/topic/" + item.id,
+                href: window.location.origin + "/t/topic/" + item.id,
                 target: "_blank"
               }, vue.toDisplayString(item.title), 9, _hoisted_4$2)
             ]);
